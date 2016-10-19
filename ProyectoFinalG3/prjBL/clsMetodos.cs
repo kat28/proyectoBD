@@ -43,7 +43,7 @@ namespace prjBL
 
                 while (FuncionConexion.dtrInfodelSelect.Read())
                 {
-                    combobox.Items.Add(FuncionConexion.dtrInfodelSelect.ToString());
+                    combobox.Items.Add(FuncionConexion.dtrInfodelSelect.);
                 }
                 FuncionConexion.dtrInfodelSelect.Close();
 
