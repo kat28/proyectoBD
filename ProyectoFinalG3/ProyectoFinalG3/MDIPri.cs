@@ -106,7 +106,7 @@ namespace ProyectoFinalG3
 
         private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMuestra frm = new frmMuestra();
+            frmMuestra frm = new frmInt();
             frm.MdiParent = this;
             frm.Show();
         }
