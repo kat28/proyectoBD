@@ -58,11 +58,11 @@
     <Compile Include="frmInt.Designer.cs">
       <DependentUpon>frmInt.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMuestra.cs">
+    <Compile Include="home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMuestra.Designer.cs">
-      <DependentUpon>frmMuestra.cs</DependentUpon>
+    <Compile Include="home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
     </Compile>
     <Compile Include="MDIPri.cs">
       <SubType>Form</SubType>
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="frmInt.resx">
       <DependentUpon>frmInt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMuestra.resx">
-      <DependentUpon>frmMuestra.cs</DependentUpon>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIPri.resx">
       <DependentUpon>MDIPri.cs</DependentUpon>

@@ -16,7 +16,7 @@ namespace ProyectoFinalG3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInt());
+            Application.Run(new home());
         }
     }
 }

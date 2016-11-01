@@ -30,23 +30,64 @@ namespace prjBL
             }
         }
 
-        public void cargaformulario(ComboBox combobox, string strsentencia)
+        //public void CargarNombreServidor(string strNombreServidor)
+        //{
+        //    try
+        //    {
+        //        FuncionConexion.Servidor(strNombreServidor);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new ApplicationException("Error al conectar a la BD : ", ex);
+        //    }
+        //}
+
+        //public void cargacombobox(ComboBox combobox, string strsentencia)
+        //{
+        //    try
+        //    {
+        //        FuncionConexion.ConexionBD(FuncionConexion.srtconexion);
+        //        FuncionConexion.BuscarconSelect(strsentencia);
+        //        combobox.Items.Clear();
+        //        combobox.Text = "";
+
+
+
+        //        while (FuncionConexion.dtrInfodelSelect.Read())
+        //        {
+        //            combobox.Items.Add(FuncionConexion.dtrInfodelSelect.GetValue(0).ToString());
+        //        }
+        //        FuncionConexion.dtrInfodelSelect.Close();
+
+        //        FuncionConexion.CierraConexionBD();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ex.ToString();
+        //    }
+        //}
+
+        public void cargaVistaArbol(TreeView treeview, string strsentencia)
         {
             try
             {
                 FuncionConexion.ConexionBD(FuncionConexion.srtconexion);
                 FuncionConexion.BuscarconSelect(strsentencia);
-                combobox.Items.Clear();
-                combobox.Text = "";
-
-
+                treeview.Nodes.Clear();
+                treeview.Text = "";
 
                 while (FuncionConexion.dtrInfodelSelect.Read())
                 {
-                    combobox.Items.Add(FuncionConexion.dtrInfodelSelect.GetValue(0).ToString());
-                }
-                FuncionConexion.dtrInfodelSelect.Close();
+                    TreeNode node = new TreeNode(FuncionConexion.dtrInfodelSelect["tabla"].ToString());
+                    node.Nodes.Add(FuncionConexion.dtrInfodelSelect["columna"].ToString());
 
+                    treeview.Nodes.Add(node);
+
+                    //treeview.Nodes.Add(FuncionConexion.dtrInfodelSelect.GetValue(0).ToString());
+                }
+
+                FuncionConexion.dtrInfodelSelect.Close();
                 FuncionConexion.CierraConexionBD();
 
             }
@@ -55,5 +96,36 @@ namespace prjBL
                 ex.ToString();
             }
         }
+
+        public void cargarlists(CheckedListBox checkedlistbox, string strsentencia)
+        {
+            try
+            {
+                FuncionConexion.ConexionBD(FuncionConexion.srtconexion);
+                FuncionConexion.BuscarconSelect(strsentencia);
+                checkedlistbox.Items.Clear();
+
+                while (FuncionConexion.dtrInfodelSelect.Read())
+                {
+                    checkedlistbox.Items.Add(FuncionConexion.dtrInfodelSelect.GetString(0));
+
+                    //treeview.Nodes.Add(FuncionConexion.dtrInfodelSelect.GetValue(0).ToString());
+                }
+
+                FuncionConexion.dtrInfodelSelect.Close();
+                FuncionConexion.CierraConexionBD();
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+            }
+        }
+
+
+
+
+
+
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace prjAccesoBD
 {
@@ -18,6 +15,13 @@ namespace prjAccesoBD
 
         public string srtconexion = "Data Source=PERSONALHOGAR\\SQL2016;Initial Catalog=Proyecto;Integrated Security=True";
 
+
+        //public void Servidor(string nombreServidor)
+        //{
+
+        //    //srtconexion = "Data Source="+nombreServidor+";Initial Catalog=Proyecto;Integrated Security=True";
+        //}
+
         public void ConexionBD(string strConexion)
         {
             scnConexion = new SqlConnection(strConexion);
@@ -28,10 +32,11 @@ namespace prjAccesoBD
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error al conectar a la BD : ", ex);
 
-                //MessageBox.show("Error al conectar a la BD : " + ex.ToString, 2, "Mensaje");
-                //MsgBox.Show("Error al conectar a la BD :", ex.ToString)
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+                
+
             }
         }
 
@@ -43,7 +48,8 @@ namespace prjAccesoBD
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Error al conectar a la BD : ", ex);
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
             }
         }
 
