@@ -89,5 +89,16 @@ namespace ProyectoFinalG3
                 FuncionLogica.cargarlists(chboxBD, strSentencia);
             }
         }
+
+        private void picGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

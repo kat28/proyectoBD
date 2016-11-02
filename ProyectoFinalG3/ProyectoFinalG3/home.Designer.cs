@@ -32,9 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(home));
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabBD = new System.Windows.Forms.TabPage();
+            this.chboxBD = new System.Windows.Forms.CheckedListBox();
+            this.picCrearBD = new System.Windows.Forms.PictureBox();
+            this.txtNuevaBD = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabUsuario = new System.Windows.Forms.TabPage();
             this.tabSQL = new System.Windows.Forms.TabPage();
+            this.picGuardar = new System.Windows.Forms.PictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.chboxColumna = new System.Windows.Forms.CheckedListBox();
             this.txtConsulta = new System.Windows.Forms.RichTextBox();
             this.picEjecutar = new System.Windows.Forms.PictureBox();
             this.picBorrar = new System.Windows.Forms.PictureBox();
@@ -56,14 +63,13 @@
             this.imageList16 = new System.Windows.Forms.ImageList(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bottom2Panel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNuevaBD = new System.Windows.Forms.TextBox();
-            this.picCrearBD = new System.Windows.Forms.PictureBox();
-            this.chboxBD = new System.Windows.Forms.CheckedListBox();
-            this.chboxColumna = new System.Windows.Forms.CheckedListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.tabBD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).BeginInit();
             this.tabSQL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEjecutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnalizar)).BeginInit();
@@ -71,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.LogoPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -105,6 +110,46 @@
             this.tabBD.TabIndex = 0;
             this.tabBD.Text = "Bases de Datos";
             // 
+            // chboxBD
+            // 
+            this.chboxBD.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chboxBD.FormattingEnabled = true;
+            this.chboxBD.Location = new System.Drawing.Point(25, 165);
+            this.chboxBD.Name = "chboxBD";
+            this.chboxBD.Size = new System.Drawing.Size(263, 109);
+            this.chboxBD.TabIndex = 11;
+            // 
+            // picCrearBD
+            // 
+            this.picCrearBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCrearBD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picCrearBD.Image = ((System.Drawing.Image)(resources.GetObject("picCrearBD.Image")));
+            this.picCrearBD.Location = new System.Drawing.Point(198, 72);
+            this.picCrearBD.Name = "picCrearBD";
+            this.picCrearBD.Size = new System.Drawing.Size(43, 40);
+            this.picCrearBD.TabIndex = 10;
+            this.picCrearBD.TabStop = false;
+            this.toolTip1.SetToolTip(this.picCrearBD, "Crear BD");
+            this.picCrearBD.Click += new System.EventHandler(this.picCrearBD_Click);
+            // 
+            // txtNuevaBD
+            // 
+            this.txtNuevaBD.Location = new System.Drawing.Point(25, 79);
+            this.txtNuevaBD.Name = "txtNuevaBD";
+            this.txtNuevaBD.Size = new System.Drawing.Size(155, 26);
+            this.txtNuevaBD.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label2.Location = new System.Drawing.Point(21, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 22);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Bases de Datos";
+            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
@@ -132,6 +177,10 @@
             // tabSQL
             // 
             this.tabSQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.tabSQL.Controls.Add(this.label3);
+            this.tabSQL.Controls.Add(this.comboBox1);
+            this.tabSQL.Controls.Add(this.picGuardar);
+            this.tabSQL.Controls.Add(this.richTextBox1);
             this.tabSQL.Controls.Add(this.chboxColumna);
             this.tabSQL.Controls.Add(this.txtConsulta);
             this.tabSQL.Controls.Add(this.picEjecutar);
@@ -151,12 +200,42 @@
             this.tabSQL.TabIndex = 1;
             this.tabSQL.Text = "Editor SQL";
             // 
+            // picGuardar
+            // 
+            this.picGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picGuardar.Image = global::ProyectoFinalG3.Properties.Resources.guardar1;
+            this.picGuardar.Location = new System.Drawing.Point(369, 9);
+            this.picGuardar.Name = "picGuardar";
+            this.picGuardar.Size = new System.Drawing.Size(35, 40);
+            this.picGuardar.TabIndex = 15;
+            this.picGuardar.TabStop = false;
+            this.toolTip1.SetToolTip(this.picGuardar, "Ejecutar Consulta");
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(10, 229);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(517, 82);
+            this.richTextBox1.TabIndex = 14;
+            this.richTextBox1.Text = "";
+            // 
+            // chboxColumna
+            // 
+            this.chboxColumna.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chboxColumna.FormattingEnabled = true;
+            this.chboxColumna.Location = new System.Drawing.Point(551, 55);
+            this.chboxColumna.Name = "chboxColumna";
+            this.chboxColumna.Size = new System.Drawing.Size(151, 256);
+            this.chboxColumna.TabIndex = 13;
+            // 
             // txtConsulta
             // 
             this.txtConsulta.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsulta.Location = new System.Drawing.Point(10, 55);
             this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(469, 176);
+            this.txtConsulta.Size = new System.Drawing.Size(517, 135);
             this.txtConsulta.TabIndex = 12;
             this.txtConsulta.Text = "";
             // 
@@ -165,7 +244,7 @@
             this.picEjecutar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picEjecutar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picEjecutar.Image = ((System.Drawing.Image)(resources.GetObject("picEjecutar.Image")));
-            this.picEjecutar.Location = new System.Drawing.Point(444, 239);
+            this.picEjecutar.Location = new System.Drawing.Point(410, 9);
             this.picEjecutar.Name = "picEjecutar";
             this.picEjecutar.Size = new System.Drawing.Size(35, 40);
             this.picEjecutar.TabIndex = 11;
@@ -178,7 +257,7 @@
             this.picBorrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBorrar.Image = ((System.Drawing.Image)(resources.GetObject("picBorrar.Image")));
-            this.picBorrar.Location = new System.Drawing.Point(404, 239);
+            this.picBorrar.Location = new System.Drawing.Point(492, 9);
             this.picBorrar.Name = "picBorrar";
             this.picBorrar.Size = new System.Drawing.Size(35, 40);
             this.picBorrar.TabIndex = 10;
@@ -191,7 +270,7 @@
             this.picAnalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picAnalizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picAnalizar.Image = ((System.Drawing.Image)(resources.GetObject("picAnalizar.Image")));
-            this.picAnalizar.Location = new System.Drawing.Point(363, 239);
+            this.picAnalizar.Location = new System.Drawing.Point(451, 9);
             this.picAnalizar.Name = "picAnalizar";
             this.picAnalizar.Size = new System.Drawing.Size(35, 40);
             this.picAnalizar.TabIndex = 9;
@@ -207,7 +286,7 @@
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(91, 252);
+            this.btnDelete.Location = new System.Drawing.Point(172, 196);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 27);
             this.btnDelete.TabIndex = 6;
@@ -223,7 +302,7 @@
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(91, 285);
+            this.btnUpdate.Location = new System.Drawing.Point(10, 196);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 27);
             this.btnUpdate.TabIndex = 5;
@@ -239,7 +318,7 @@
             this.btnInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
             this.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsert.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(10, 285);
+            this.btnInsert.Location = new System.Drawing.Point(91, 196);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 27);
             this.btnInsert.TabIndex = 5;
@@ -255,7 +334,7 @@
             this.btnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(10, 252);
+            this.btnSelect.Location = new System.Drawing.Point(253, 196);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(75, 27);
             this.btnSelect.TabIndex = 4;
@@ -268,7 +347,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(558, 55);
+            this.label1.Location = new System.Drawing.Point(570, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 22);
             this.label1.TabIndex = 3;
@@ -403,54 +482,26 @@
             this.bottom2Panel.Size = new System.Drawing.Size(718, 21);
             this.bottom2Panel.TabIndex = 2;
             // 
-            // label2
+            // comboBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label2.Location = new System.Drawing.Point(21, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 22);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Bases de Datos";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(406, 197);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 16;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // txtNuevaBD
+            // label3
             // 
-            this.txtNuevaBD.Location = new System.Drawing.Point(25, 79);
-            this.txtNuevaBD.Name = "txtNuevaBD";
-            this.txtNuevaBD.Size = new System.Drawing.Size(155, 26);
-            this.txtNuevaBD.TabIndex = 3;
-            // 
-            // picCrearBD
-            // 
-            this.picCrearBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picCrearBD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picCrearBD.Image = ((System.Drawing.Image)(resources.GetObject("picCrearBD.Image")));
-            this.picCrearBD.Location = new System.Drawing.Point(198, 72);
-            this.picCrearBD.Name = "picCrearBD";
-            this.picCrearBD.Size = new System.Drawing.Size(43, 40);
-            this.picCrearBD.TabIndex = 10;
-            this.picCrearBD.TabStop = false;
-            this.toolTip1.SetToolTip(this.picCrearBD, "Crear BD");
-            this.picCrearBD.Click += new System.EventHandler(this.picCrearBD_Click);
-            // 
-            // chboxBD
-            // 
-            this.chboxBD.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chboxBD.FormattingEnabled = true;
-            this.chboxBD.Location = new System.Drawing.Point(25, 165);
-            this.chboxBD.Name = "chboxBD";
-            this.chboxBD.Size = new System.Drawing.Size(263, 109);
-            this.chboxBD.TabIndex = 11;
-            // 
-            // chboxColumna
-            // 
-            this.chboxColumna.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chboxColumna.FormattingEnabled = true;
-            this.chboxColumna.Location = new System.Drawing.Point(533, 80);
-            this.chboxColumna.Name = "chboxColumna";
-            this.chboxColumna.Size = new System.Drawing.Size(151, 151);
-            this.chboxColumna.TabIndex = 13;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label3.Location = new System.Drawing.Point(360, 197);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 22);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "BD:";
+           // this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // home
             // 
@@ -468,8 +519,10 @@
             this.tabMenu.ResumeLayout(false);
             this.tabBD.ResumeLayout(false);
             this.tabBD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).EndInit();
             this.tabSQL.ResumeLayout(false);
             this.tabSQL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGuardar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEjecutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnalizar)).EndInit();
@@ -479,7 +532,6 @@
             this.LogoPanel.ResumeLayout(false);
             this.LogoPanel.PerformLayout();
             this.sidePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,13 +560,17 @@
         private System.Windows.Forms.PictureBox picAnalizar;
         private System.Windows.Forms.PictureBox picBorrar;
         private System.Windows.Forms.PictureBox picEjecutar;
-        private System.Windows.Forms.RichTextBox txtConsulta;
         private System.Windows.Forms.Panel bottom2Panel;
         private System.Windows.Forms.Panel bottom1Panel;
         private System.Windows.Forms.PictureBox picCrearBD;
         private System.Windows.Forms.TextBox txtNuevaBD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox chboxBD;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtConsulta;
         private System.Windows.Forms.CheckedListBox chboxColumna;
+        private System.Windows.Forms.PictureBox picGuardar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
