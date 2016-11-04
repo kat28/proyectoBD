@@ -39,10 +39,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabUsuario = new System.Windows.Forms.TabPage();
             this.tabSQL = new System.Windows.Forms.TabPage();
+            this.rtxtConsulta = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.picGuardar = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.chboxColumna = new System.Windows.Forms.CheckedListBox();
-            this.txtConsulta = new System.Windows.Forms.RichTextBox();
             this.picEjecutar = new System.Windows.Forms.PictureBox();
             this.picBorrar = new System.Windows.Forms.PictureBox();
             this.picAnalizar = new System.Windows.Forms.PictureBox();
@@ -54,6 +56,8 @@
             this.labelTituloSQL = new System.Windows.Forms.Label();
             this.imageList32 = new System.Windows.Forms.ImageList(this.components);
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.lblServidor = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.LogoTitulo = new System.Windows.Forms.Label();
@@ -63,8 +67,6 @@
             this.imageList16 = new System.Windows.Forms.ImageList(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bottom2Panel = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.tabBD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).BeginInit();
@@ -177,12 +179,12 @@
             // tabSQL
             // 
             this.tabSQL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.tabSQL.Controls.Add(this.rtxtConsulta);
             this.tabSQL.Controls.Add(this.label3);
             this.tabSQL.Controls.Add(this.comboBox1);
             this.tabSQL.Controls.Add(this.picGuardar);
             this.tabSQL.Controls.Add(this.richTextBox1);
             this.tabSQL.Controls.Add(this.chboxColumna);
-            this.tabSQL.Controls.Add(this.txtConsulta);
             this.tabSQL.Controls.Add(this.picEjecutar);
             this.tabSQL.Controls.Add(this.picBorrar);
             this.tabSQL.Controls.Add(this.picAnalizar);
@@ -199,6 +201,36 @@
             this.tabSQL.Size = new System.Drawing.Size(710, 348);
             this.tabSQL.TabIndex = 1;
             this.tabSQL.Text = "Editor SQL";
+            // 
+            // rtxtConsulta
+            // 
+            this.rtxtConsulta.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtConsulta.Location = new System.Drawing.Point(10, 55);
+            this.rtxtConsulta.Name = "rtxtConsulta";
+            this.rtxtConsulta.Size = new System.Drawing.Size(517, 135);
+            this.rtxtConsulta.TabIndex = 18;
+            this.rtxtConsulta.Text = "";
+            this.rtxtConsulta.TextChanged += new System.EventHandler(this.rtxtSentencia_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label3.Location = new System.Drawing.Point(360, 197);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 22);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "BD:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(406, 197);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 16;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // picGuardar
             // 
@@ -229,15 +261,6 @@
             this.chboxColumna.Name = "chboxColumna";
             this.chboxColumna.Size = new System.Drawing.Size(151, 256);
             this.chboxColumna.TabIndex = 13;
-            // 
-            // txtConsulta
-            // 
-            this.txtConsulta.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsulta.Location = new System.Drawing.Point(10, 55);
-            this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(517, 135);
-            this.txtConsulta.TabIndex = 12;
-            this.txtConsulta.Text = "";
             // 
             // picEjecutar
             // 
@@ -379,12 +402,34 @@
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.White;
+            this.headerPanel.Controls.Add(this.lblServidor);
+            this.headerPanel.Controls.Add(this.label4);
             this.headerPanel.Controls.Add(this.picExit);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(225, 0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(718, 41);
             this.headerPanel.TabIndex = 1;
+            // 
+            // lblServidor
+            // 
+            this.lblServidor.AutoSize = true;
+            this.lblServidor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServidor.Location = new System.Drawing.Point(62, 13);
+            this.lblServidor.Name = "lblServidor";
+            this.lblServidor.Size = new System.Drawing.Size(41, 16);
+            this.lblServidor.TabIndex = 2;
+            this.lblServidor.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 16);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Servidor:";
             // 
             // picExit
             // 
@@ -482,27 +527,6 @@
             this.bottom2Panel.Size = new System.Drawing.Size(718, 21);
             this.bottom2Panel.TabIndex = 2;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(406, 197);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label3.Location = new System.Drawing.Point(360, 197);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 22);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "BD:";
-           // this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,10 +591,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox chboxBD;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox txtConsulta;
         private System.Windows.Forms.CheckedListBox chboxColumna;
         private System.Windows.Forms.PictureBox picGuardar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblServidor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox rtxtConsulta;
     }
 }

@@ -30,17 +30,12 @@ namespace prjBL
             }
         }
 
-        //public void CargarNombreServidor(string strNombreServidor)
-        //{
-        //    try
-        //    {
-        //        FuncionConexion.Servidor(strNombreServidor);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new ApplicationException("Error al conectar a la BD : ", ex);
-        //    }
-        //}
+        public void CargarNombreServidor(string strNombreServidor)
+        {
+
+            FuncionConexion.Servidor(strNombreServidor);
+            
+        }
 
         //public void cargacombobox(ComboBox combobox, string strsentencia)
         //{

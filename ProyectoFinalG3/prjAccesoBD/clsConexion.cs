@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace prjAccesoBD
 {
+
     public class clsConexion
     {
         public SqlConnection scnConexion;
@@ -16,11 +17,20 @@ namespace prjAccesoBD
         public string srtconexion = "Data Source=PERSONALHOGAR\\SQL2016;Initial Catalog=Proyecto;Integrated Security=True";
 
 
-        //public void Servidor(string nombreServidor)
-        //{
+        public void Servidor(string nombreServidor)
+        {
+            try
+            {
+                string srtconexion = "Data Source=" + nombreServidor + ";Initial Catalog=Proyecto;Integrated Security=True";
+                ConexionBD(srtconexion);
+                MessageBox.Show("Conexion exitosa", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.None);
 
-        //    //srtconexion = "Data Source="+nombreServidor+";Initial Catalog=Proyecto;Integrated Security=True";
-        //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public void ConexionBD(string strConexion)
         {

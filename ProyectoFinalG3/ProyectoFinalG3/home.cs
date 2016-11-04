@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace ProyectoFinalG3
 {
@@ -16,7 +17,9 @@ namespace ProyectoFinalG3
         {
             InitializeComponent();
             //strSentencia = "SELECT name FROM master.dbo.sysdatabases WHERE name NOT IN ('master','model','msdb','tempdb')";
-            
+
+            lblServidor.Text = "PERSONALHOGAR\\SQL2016";
+
             strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
             FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
 
@@ -50,32 +53,33 @@ namespace ProyectoFinalG3
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            txtConsulta.Text = "SELECT nombre_columna,nombre_columna FROM nombre_tabla;";
+            rtxtConsulta.Text = " SELECT nombre_columna,nombre_columna FROM nombre_tabla;";
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            txtConsulta.Text = "DELETE FROM nombre_tabla WHERE nombre_columna = valor;";
+            rtxtConsulta.Text = "DELETE FROM nombre_tabla WHERE nombre_columna = valor;";
             
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            txtConsulta.Text = "UPDATE nombre_tabla SET nombre_columna = valor WHERE nombre_columna = algun_valor;";
+            rtxtConsulta.Text = "UPDATE nombre_tabla SET nombre_columna = valor WHERE nombre_columna = algun_valor;";
             
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
             
-            txtConsulta.Text = "INSERT INTO nombre_tabla(nombre_columna1,nombre_columna2,...) VALUES (valor1,valor2,...);";
+            rtxtConsulta.Text = "INSERT INTO nombre_tabla(nombre_columna1,nombre_columna2,...) VALUES (valor1,valor2,...);";
 
         }
 
         private void picExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
+            Application.Exit();
         }
 
         private void picCrearBD_Click(object sender, EventArgs e)
@@ -100,5 +104,33 @@ namespace ProyectoFinalG3
 
         }
 
+
+
+
+        //cambia el color de las palabras reservadas del texto
+        private void rtxtSentencia_TextChanged(object sender, EventArgs e)
+        {
+            string palabrasReservadas = @"(SELECT | FROM | WHERE)";
+
+
+            Regex rex = new Regex(palabrasReservadas);
+            MatchCollection aciertos = rex.Matches(rtxtConsulta.Text.ToUpper());
+
+            int posicionInicial = rtxtConsulta.SelectionStart;
+
+            foreach (Match palabraAcertada in aciertos)
+            {
+
+                int primerCaracter = palabraAcertada.Index;
+                int ultimoCaracter = palabraAcertada.Length;
+
+                rtxtConsulta.Select(primerCaracter, ultimoCaracter);
+                rtxtConsulta.SelectionColor = Color.Blue;
+
+                rtxtConsulta.SelectionStart = posicionInicial;
+                rtxtConsulta.SelectionColor = Color.Black;
+
+            }
+        }
     }
 }
