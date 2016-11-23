@@ -8,7 +8,7 @@ namespace ProyectoFinalG3
 {
     static class Program
     {
-        public static string NombreServidor; //Program.Program.NombreUsuario
+        //public static string NombreServidor; //Program.Program.NombreUsuario
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +17,7 @@ namespace ProyectoFinalG3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            Application.Run(new home());
 
              
 

@@ -18,14 +18,13 @@ namespace ProyectoFinalG3
             InitializeComponent();
             //strSentencia = "SELECT name FROM master.dbo.sysdatabases WHERE name NOT IN ('master','model','msdb','tempdb')";
 
-            lblServidor.Text = "PERSONALHOGAR\\SQL2016";
 
-            strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
-            FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
+            //strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
+            //FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
 
 
-            strSentencia = "SELECT name FROM master.dbo.sysdatabases db WHERE name NOT IN ('master','model','msdb','tempdb');";
-            FuncionLogica.cargarlists(chboxBD, strSentencia);
+            //strSentencia = "SELECT name FROM master.dbo.sysdatabases db WHERE name NOT IN ('master','model','msdb','tempdb');";
+            //FuncionLogica.cargarlists(chboxBD, strSentencia);
 
         }
 
@@ -104,9 +103,6 @@ namespace ProyectoFinalG3
 
         }
 
-
-
-
         //cambia el color de las palabras reservadas del texto
         private void rtxtSentencia_TextChanged(object sender, EventArgs e)
         {
@@ -131,6 +127,40 @@ namespace ProyectoFinalG3
                 rtxtConsulta.SelectionColor = Color.Black;
 
             }
+        }
+
+        private void tabBD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+
+            string strNombreServidor = txtServidor.Text;
+            string strNombreInstancia = txtInstancia.Text;
+
+            FuncionLogica.CargarNombreServidor(strNombreServidor, strNombreInstancia);
+            //MessageBox.Show(strNombreServidor + @"\" +strNombreInstancia);
+
+            lblServidor.Text = strNombreServidor;
+
+            txtInstancia.Enabled = false;
+            txtServidor.Enabled = false;
+
+            strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
+            FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
+
+
+            strSentencia = "SELECT name FROM master.dbo.sysdatabases db WHERE name NOT IN ('master','model','msdb','tempdb');";
+            FuncionLogica.cargarlists(chboxBD, strSentencia);
+
+
+        }
+
+        private void btnDesconectar_Click(object sender, EventArgs e)
+        {
+            FuncionConexion.CierraConexionBD();
         }
     }
 }

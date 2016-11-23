@@ -14,27 +14,29 @@ namespace prjAccesoBD
         public SqlDataAdapter sdaInfoSelectMultiple;
         public DataTable dttCargaSelectMutiple = new DataTable();
 
-        public string srtconexion = "Data Source=PERSONALHOGAR\\SQL2016;Initial Catalog=Proyecto;Integrated Security=True";
+        public string srtconexion = "";//"Data Source=PERSONALHOGAR\\SQL2016;Initial Catalog=Proyecto;Integrated Security=True";
 
-
-        public void Servidor(string nombreServidor)
+        public void conexionServidor(string serv, string inst)
         {
-            try
+            string nombreServidor = serv;//"PERSONALHOGAR";
+            string nombreInstancia = inst;//"SQL2016";
+            string nombreBaseDatos = "proyecto;";
+
+
+            if (nombreInstancia != null)
             {
-                string srtconexion = "Data Source=" + nombreServidor + ";Initial Catalog=Proyecto;Integrated Security=True";
-                ConexionBD(srtconexion);
-                MessageBox.Show("Conexion exitosa", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.None);
+                nombreServidor = nombreServidor + @"\" + nombreInstancia;
 
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            srtconexion = "Data Source=" + nombreServidor
+                            + "; Initial Catalog=" + nombreBaseDatos
+                            //+ "; User Id=" + usuario
+                            //+ "; Password=" + contrasena
+                            + "Integrated Security=True;";
         }
-
-        public void ConexionBD(string strConexion)
+         public void ConexionBD(string srtconexion)
         {
-            scnConexion = new SqlConnection(strConexion);
+            scnConexion = new SqlConnection(srtconexion);
             try
             {
                 scnConexion.Open();
@@ -42,11 +44,8 @@ namespace prjAccesoBD
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
-                
-
+               
             }
         }
 
@@ -59,7 +58,7 @@ namespace prjAccesoBD
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
+                
             }
         }
 

@@ -30,10 +30,10 @@ namespace prjBL
             }
         }
 
-        public void CargarNombreServidor(string strNombreServidor)
+        public void CargarNombreServidor(string strNombreServidor, string inst)
         {
 
-            FuncionConexion.Servidor(strNombreServidor);
+            FuncionConexion.conexionServidor(strNombreServidor,inst);
             
         }
 

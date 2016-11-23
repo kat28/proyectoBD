@@ -46,7 +46,7 @@ namespace ProyectoFinalG3
                 string strNombreServidor;
                 strNombreServidor = txtNombreServidor.Text;
 
-                FuncionLogica.CargarNombreServidor(strNombreServidor);
+                FuncionLogica.CargarNombreServidor(strNombreServidor,"");
 
             }
             catch (Exception ex)
