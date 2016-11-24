@@ -24,8 +24,8 @@ namespace ProyectoFinalG3
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            strSentencia = "select name from sysobjects where type='U'";
-            FuncionLogica.cargaVistaArbol(tv, strSentencia);
+            //strSentencia = "select name from sysobjects where type='U'";
+            //FuncionLogica.cargaVistaArbol(tv, strSentencia);
         }
 
         //  private void btnConectar_Click(object sender, EventArgs e)

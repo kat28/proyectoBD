@@ -30,8 +30,8 @@ namespace ProyectoFinalG3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            strSentencia = "USE master; SELECT name FROM master.dbo.sysdatabases WHERE name NOT IN ('master','model','msdb','tempdb')";
-            FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
+            //strSentencia = "USE master; SELECT name FROM master.dbo.sysdatabases WHERE name NOT IN ('master','model','msdb','tempdb')";
+            //FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
 
         }
 
@@ -89,7 +89,7 @@ namespace ProyectoFinalG3
                 MessageBox.Show("Debe escribir el nombre de la nueva base de datos", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }else{
                 strSentencia = "SELECT name FROM master.dbo.sysdatabases db WHERE name NOT IN ('master','model','msdb','tempdb');";
-                FuncionLogica.cargarlists(chboxBD, strSentencia);
+                FuncionLogica.cargacombobox(cmbBD, strSentencia);
             }
         }
 
@@ -148,19 +148,29 @@ namespace ProyectoFinalG3
             txtInstancia.Enabled = false;
             txtServidor.Enabled = false;
 
-            strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
-            FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia);
-
-
             strSentencia = "SELECT name FROM master.dbo.sysdatabases db WHERE name NOT IN ('master','model','msdb','tempdb');";
-            FuncionLogica.cargarlists(chboxBD, strSentencia);
-
+            FuncionLogica.cargacombobox(cmbBD, strSentencia);
 
         }
 
         private void btnDesconectar_Click(object sender, EventArgs e)
         {
+            txtInstancia.Text = "";
+            txtServidor.Text = "";
+            txtInstancia.Enabled = true;
+            txtServidor.Enabled = true;
             FuncionConexion.CierraConexionBD();
+        }
+
+        private void cmbBD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string strBD = cmbBD.Text;
+
+
+
+            strSentencia = "SELECT t.name tabla, c.name columna FROM sys.columns c JOIN sys.tables t ON c.object_id = t.object_id";
+            FuncionLogica.cargaVistaArbol(treeViewBD, strSentencia, strBD);
         }
     }
 }

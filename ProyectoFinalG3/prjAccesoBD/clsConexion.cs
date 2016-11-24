@@ -11,8 +11,6 @@ namespace prjAccesoBD
         public SqlConnection scnConexion;
         public SqlCommand scmComando;
         public SqlDataReader dtrInfodelSelect;
-        public SqlDataAdapter sdaInfoSelectMultiple;
-        public DataTable dttCargaSelectMutiple = new DataTable();
 
         public string srtconexion = "";//"Data Source=PERSONALHOGAR\\SQL2016;Initial Catalog=Proyecto;Integrated Security=True";
 
@@ -20,7 +18,7 @@ namespace prjAccesoBD
         {
             string nombreServidor = serv;//"PERSONALHOGAR";
             string nombreInstancia = inst;//"SQL2016";
-            string nombreBaseDatos = "proyecto;";
+            //string nombreBaseDatos = "proyecto;";
 
 
             if (nombreInstancia != null)
@@ -29,13 +27,39 @@ namespace prjAccesoBD
 
             }
             srtconexion = "Data Source=" + nombreServidor
-                            + "; Initial Catalog=" + nombreBaseDatos
-                            //+ "; User Id=" + usuario
-                            //+ "; Password=" + contrasena
-                            + "Integrated Security=True;";
+                            + "; Integrated Security=True"
+                            //+ "; Initial Catalog=" + nombreBaseDatos
+                            ////+ "; User Id=" + usuario
+                            ////+ "; Password=" + contrasena
+                            //+ ";"
+                            ;
+            
+
         }
-         public void ConexionBD(string srtconexion)
+
+        public void ConexionBases(string srtconexion,string srtNombreBase)
         {
+
+            srtconexion = srtconexion + "; Initial Catalog=" + srtNombreBase + ";";
+
+            scnConexion = new SqlConnection(srtconexion);
+            try
+            {
+                scnConexion.Open();
+                // MsgBox("Conexion Exitosa", 6, "Mensaje")
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+
+
+        public void ConexionBD(string srtconexion)
+        {
+
             scnConexion = new SqlConnection(srtconexion);
             try
             {
@@ -85,20 +109,6 @@ namespace prjAccesoBD
         }
 
 
-        //con esta funcion BuscarconSelect, ella consulta a la BD a partir del select que le inyecto
-        public void BuscarMultiple(string srtSentencia)
-        {
 
-            SqlCommand scmComando = default(SqlCommand);
-            scmComando = new SqlCommand();
-            scmComando.Connection = scnConexion;
-            scmComando.CommandType = CommandType.Text;
-            scmComando.CommandText = srtSentencia;
-            //Esta es la sentencia del Select que estoy haciendo
-            sdaInfoSelectMultiple = new SqlDataAdapter(scmComando);
-            dttCargaSelectMutiple = new DataTable();
-            sdaInfoSelectMultiple.Fill(dttCargaSelectMutiple);
-
-        }
     }
 }

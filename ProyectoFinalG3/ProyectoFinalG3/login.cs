@@ -22,16 +22,6 @@ namespace ProyectoFinalG3
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            home frm = new home();
-            frm.Show();
-
-            this.Hide();
-
-
-        }
-
         private void picExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,11 +33,7 @@ namespace ProyectoFinalG3
 
             try
             {
-                string strNombreServidor;
-                strNombreServidor = txtNombreServidor.Text;
-
-                FuncionLogica.CargarNombreServidor(strNombreServidor,"");
-
+               
             }
             catch (Exception ex)
             {

@@ -8,7 +8,7 @@ namespace prjAccesoBD
 
         public SqlConnection conexionMSQL { get; set; }
 
-        private string cadenaConexion;
+       // private string cadenaConexion;
 
 
         //public void conexionServidor(string serv, string inst)

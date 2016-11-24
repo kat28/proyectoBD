@@ -32,17 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(home));
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabBD = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnConectar = new System.Windows.Forms.Button();
-            this.txtInstancia = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtServidor = new System.Windows.Forms.TextBox();
-            this.chboxBD = new System.Windows.Forms.CheckedListBox();
+            this.cmbBD = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.picCrearBD = new System.Windows.Forms.PictureBox();
+            this.treeViewBD = new System.Windows.Forms.TreeView();
             this.txtNuevaBD = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabUsuario = new System.Windows.Forms.TabPage();
             this.tabSQL = new System.Windows.Forms.TabPage();
             this.rtxtConsulta = new System.Windows.Forms.RichTextBox();
@@ -61,29 +56,34 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelTituloSQL = new System.Windows.Forms.Label();
             this.imageList32 = new System.Windows.Forms.ImageList(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDesconectar = new System.Windows.Forms.Button();
+            this.btnConectar = new System.Windows.Forms.Button();
+            this.txtInstancia = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtServidor = new System.Windows.Forms.TextBox();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.lblServidor = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.LogoTitulo = new System.Windows.Forms.Label();
-            this.treeViewBD = new System.Windows.Forms.TreeView();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.bottom1Panel = new System.Windows.Forms.Panel();
             this.imageList16 = new System.Windows.Forms.ImageList(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.bottom2Panel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnDesconectar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabMenu.SuspendLayout();
             this.tabBD.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).BeginInit();
             this.tabSQL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEjecutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnalizar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.LogoPanel.SuspendLayout();
@@ -108,13 +108,13 @@
             // tabBD
             // 
             this.tabBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.tabBD.Controls.Add(this.label8);
+            this.tabBD.Controls.Add(this.cmbBD);
             this.tabBD.Controls.Add(this.label7);
-            this.tabBD.Controls.Add(this.chboxBD);
             this.tabBD.Controls.Add(this.picCrearBD);
             this.tabBD.Controls.Add(this.treeViewBD);
             this.tabBD.Controls.Add(this.txtNuevaBD);
             this.tabBD.Controls.Add(this.label2);
-            this.tabBD.Controls.Add(this.button1);
             this.tabBD.ImageIndex = 1;
             this.tabBD.Location = new System.Drawing.Point(4, 39);
             this.tabBD.Name = "tabBD";
@@ -124,92 +124,31 @@
             this.tabBD.Text = "Bases de Datos";
             this.tabBD.Click += new System.EventHandler(this.tabBD_Click);
             // 
-            // groupBox1
+            // cmbBD
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.groupBox1.Controls.Add(this.btnDesconectar);
-            this.groupBox1.Controls.Add(this.btnConectar);
-            this.groupBox1.Controls.Add(this.txtInstancia);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtServidor);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Location = new System.Drawing.Point(3, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 347);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Conexion con Servidor";
+            this.cmbBD.FormattingEnabled = true;
+            this.cmbBD.Location = new System.Drawing.Point(25, 59);
+            this.cmbBD.Name = "cmbBD";
+            this.cmbBD.Size = new System.Drawing.Size(178, 26);
+            this.cmbBD.TabIndex = 13;
+            this.cmbBD.SelectedIndexChanged += new System.EventHandler(this.cmbBD_SelectedIndexChanged);
             // 
-            // btnConectar
+            // label7
             // 
-            this.btnConectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
-            this.btnConectar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnConectar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConectar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConectar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConectar.ImageIndex = 4;
-            this.btnConectar.Location = new System.Drawing.Point(66, 181);
-            this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(84, 24);
-            this.btnConectar.TabIndex = 4;
-            this.btnConectar.Text = "Conectar";
-            this.btnConectar.UseVisualStyleBackColor = false;
-            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
-            // 
-            // txtInstancia
-            // 
-            this.txtInstancia.Location = new System.Drawing.Point(13, 124);
-            this.txtInstancia.Name = "txtInstancia";
-            this.txtInstancia.Size = new System.Drawing.Size(190, 23);
-            this.txtInstancia.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(52, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 16);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Nombre Instancia";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(55, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Nombre Servidor";
-            // 
-            // txtServidor
-            // 
-            this.txtServidor.Location = new System.Drawing.Point(13, 56);
-            this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(190, 23);
-            this.txtServidor.TabIndex = 0;
-            // 
-            // chboxBD
-            // 
-            this.chboxBD.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chboxBD.FormattingEnabled = true;
-            this.chboxBD.Location = new System.Drawing.Point(25, 165);
-            this.chboxBD.Name = "chboxBD";
-            this.chboxBD.Size = new System.Drawing.Size(263, 109);
-            this.chboxBD.TabIndex = 11;
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label7.Location = new System.Drawing.Point(490, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 18);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Tablas:";
             // 
             // picCrearBD
             // 
             this.picCrearBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picCrearBD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picCrearBD.Image = ((System.Drawing.Image)(resources.GetObject("picCrearBD.Image")));
-            this.picCrearBD.Location = new System.Drawing.Point(198, 72);
+            this.picCrearBD.Location = new System.Drawing.Point(394, 52);
             this.picCrearBD.Name = "picCrearBD";
             this.picCrearBD.Size = new System.Drawing.Size(33, 33);
             this.picCrearBD.TabIndex = 10;
@@ -217,9 +156,19 @@
             this.toolTip1.SetToolTip(this.picCrearBD, "Crear BD");
             this.picCrearBD.Click += new System.EventHandler(this.picCrearBD_Click);
             // 
+            // treeViewBD
+            // 
+            this.treeViewBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.treeViewBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewBD.ForeColor = System.Drawing.SystemColors.Info;
+            this.treeViewBD.Location = new System.Drawing.Point(485, 22);
+            this.treeViewBD.Name = "treeViewBD";
+            this.treeViewBD.Size = new System.Drawing.Size(222, 309);
+            this.treeViewBD.TabIndex = 3;
+            // 
             // txtNuevaBD
             // 
-            this.txtNuevaBD.Location = new System.Drawing.Point(25, 79);
+            this.txtNuevaBD.Location = new System.Drawing.Point(233, 59);
             this.txtNuevaBD.Name = "txtNuevaBD";
             this.txtNuevaBD.Size = new System.Drawing.Size(155, 26);
             this.txtNuevaBD.TabIndex = 3;
@@ -234,20 +183,6 @@
             this.label2.Size = new System.Drawing.Size(148, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Bases de Datos";
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(294, 186);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 70);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "boton de pruebas";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabUsuario
             // 
@@ -482,6 +417,94 @@
             this.imageList32.Images.SetKeyName(5, "team.png");
             this.imageList32.Images.SetKeyName(6, "exit.png");
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.groupBox1.Controls.Add(this.btnDesconectar);
+            this.groupBox1.Controls.Add(this.btnConectar);
+            this.groupBox1.Controls.Add(this.txtInstancia);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtServidor);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.Location = new System.Drawing.Point(3, 64);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(219, 347);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Conexion con Servidor";
+            // 
+            // btnDesconectar
+            // 
+            this.btnDesconectar.BackColor = System.Drawing.Color.Crimson;
+            this.btnDesconectar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnDesconectar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnDesconectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesconectar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesconectar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDesconectar.ImageIndex = 4;
+            this.btnDesconectar.Location = new System.Drawing.Point(62, 227);
+            this.btnDesconectar.Name = "btnDesconectar";
+            this.btnDesconectar.Size = new System.Drawing.Size(92, 24);
+            this.btnDesconectar.TabIndex = 5;
+            this.btnDesconectar.Text = "Desconectar";
+            this.btnDesconectar.UseVisualStyleBackColor = false;
+            this.btnDesconectar.Click += new System.EventHandler(this.btnDesconectar_Click);
+            // 
+            // btnConectar
+            // 
+            this.btnConectar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
+            this.btnConectar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnConectar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConectar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConectar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConectar.ImageIndex = 4;
+            this.btnConectar.Location = new System.Drawing.Point(66, 181);
+            this.btnConectar.Name = "btnConectar";
+            this.btnConectar.Size = new System.Drawing.Size(84, 24);
+            this.btnConectar.TabIndex = 4;
+            this.btnConectar.Text = "Conectar";
+            this.btnConectar.UseVisualStyleBackColor = false;
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
+            // 
+            // txtInstancia
+            // 
+            this.txtInstancia.Location = new System.Drawing.Point(13, 124);
+            this.txtInstancia.Name = "txtInstancia";
+            this.txtInstancia.Size = new System.Drawing.Size(190, 23);
+            this.txtInstancia.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(52, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 16);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Nombre Instancia";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label5.Location = new System.Drawing.Point(55, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 16);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Nombre Servidor";
+            // 
+            // txtServidor
+            // 
+            this.txtServidor.Location = new System.Drawing.Point(13, 56);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(190, 23);
+            this.txtServidor.TabIndex = 0;
+            // 
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.White;
@@ -548,16 +571,6 @@
             this.LogoTitulo.TabIndex = 0;
             this.LogoTitulo.Text = "Proyecto Final BD2";
             // 
-            // treeViewBD
-            // 
-            this.treeViewBD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.treeViewBD.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeViewBD.ForeColor = System.Drawing.SystemColors.Info;
-            this.treeViewBD.Location = new System.Drawing.Point(485, 22);
-            this.treeViewBD.Name = "treeViewBD";
-            this.treeViewBD.Size = new System.Drawing.Size(222, 309);
-            this.treeViewBD.TabIndex = 3;
-            // 
             // sidePanel
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(196)))), ((int)(((byte)(37)))));
@@ -610,32 +623,15 @@
             this.bottom2Panel.Size = new System.Drawing.Size(718, 21);
             this.bottom2Panel.TabIndex = 2;
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label7.Location = new System.Drawing.Point(490, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 18);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Tablas:";
-            // 
-            // btnDesconectar
-            // 
-            this.btnDesconectar.BackColor = System.Drawing.Color.Crimson;
-            this.btnDesconectar.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnDesconectar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnDesconectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesconectar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesconectar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDesconectar.ImageIndex = 4;
-            this.btnDesconectar.Location = new System.Drawing.Point(62, 227);
-            this.btnDesconectar.Name = "btnDesconectar";
-            this.btnDesconectar.Size = new System.Drawing.Size(92, 24);
-            this.btnDesconectar.TabIndex = 5;
-            this.btnDesconectar.Text = "Desconectar";
-            this.btnDesconectar.UseVisualStyleBackColor = false;
-            this.btnDesconectar.Click += new System.EventHandler(this.btnDesconectar_Click);
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label8.Location = new System.Drawing.Point(233, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 18);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Crear Base Datos";
             // 
             // home
             // 
@@ -653,8 +649,6 @@
             this.tabMenu.ResumeLayout(false);
             this.tabBD.ResumeLayout(false);
             this.tabBD.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCrearBD)).EndInit();
             this.tabSQL.ResumeLayout(false);
             this.tabSQL.PerformLayout();
@@ -662,6 +656,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEjecutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBorrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnalizar)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
@@ -680,7 +676,6 @@
         private System.Windows.Forms.ImageList imageList32;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.PictureBox picExit;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel LogoPanel;
         private System.Windows.Forms.Label LogoTitulo;
         private System.Windows.Forms.TreeView treeViewBD;
@@ -701,7 +696,6 @@
         private System.Windows.Forms.PictureBox picCrearBD;
         private System.Windows.Forms.TextBox txtNuevaBD;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox chboxBD;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.CheckedListBox chboxColumna;
         private System.Windows.Forms.PictureBox picGuardar;
@@ -718,5 +712,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDesconectar;
+        private System.Windows.Forms.ComboBox cmbBD;
+        private System.Windows.Forms.Label label8;
     }
 }
